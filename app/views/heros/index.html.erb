@@ -1,0 +1,32 @@
+
+
+<h1>Heros</h1>
+<table>
+<thead>
+  <tr>
+    <th>Hero ID</th>
+    <th>Hero Name</th>
+    <th>Category</th>
+    <th colspan="3">Actions</th>
+  </tr>
+</thead>
+
+
+  <% @heros.each do |hero| %>
+  <tbody>
+  <tr>
+    <td><%= hero.id %></td>
+    <td><%= hero.name %></td>
+    <td><%= hero.category %></td>
+   <td> <%= link_to "Edit", edit_hero_path(hero) %> </td>
+    <td><%= link_to "View", hero_path(hero) %></td>
+    <td><%= button_to "Destroy", hero, method: :delete %>
+      </td>
+  </tr>
+  </tbody>
+
+  <% end %>
+
+</table>
+<%= link_to "New hero", new_hero_path %>
+<%= link_to "Home page", root_path %>

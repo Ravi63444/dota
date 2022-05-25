@@ -1,0 +1,19 @@
+<% if @hero.errors.any? %>
+<Strong>Following errors occurred while creating new hero</strong>
+<ul>
+  <% @hero.errors.full_messages.each do |msg|%>
+    <li><%= msg%></li>
+  <% end %>
+</ul>
+<% end %>
+<%= form_with(model: @hero, local: true) do |form| %>
+<p>
+  <%= form.label :HeroName %><br>
+  <%= form.text_field :name %>
+  </P>
+  <p>
+  <%= form.label :Category %><br>
+  <%= form.text_field :category %>
+  </p>
+  <%= form.submit "Submit" %>
+<% end %>
